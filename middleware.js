@@ -95,10 +95,16 @@ middleware.createServer = function() {
 	
 	/**
 	 * Listen for connections.
+	 *
+	 * @param {Integer} port
+	 * @param {Function} callback
 	 */
-	app.listen = function() {
+	app.listen = function(port, callback) {
 		var server = http.createServer(this);
-		return server.listen.apply(server, arguments);
+		var args = new Array();
+		args.push(port);
+		args.push(callback);
+		return server.listen.apply(server, args);
 	};
 	
 	app.layers = [];
