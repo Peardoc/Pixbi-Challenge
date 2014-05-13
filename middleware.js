@@ -6,7 +6,7 @@ var middleware = exports = module.exports;
 middleware.createServer = function() {
 	
 	/**
-	 * app object will be used to create the underlined http server
+	 * app object is used to create the underlying http server.
 	 */
 	function app(req, res, next) {
 		app.handler(req, res, next);
@@ -37,8 +37,9 @@ middleware.createServer = function() {
 	
 	/**
 	 * function to handle server requests. 
+	 *
 	 * This in turn invokes all the applicable middleware 
-	 * handlers for the given request path
+	 * handlers for the given request path.
 	 */
 	app.handler = function(req, res, out) {
 		
@@ -93,7 +94,7 @@ middleware.createServer = function() {
 	};
 	
 	/**
-	 * Listen for connections
+	 * Listen for connections.
 	 */
 	app.listen = function() {
 		var server = http.createServer(this);
